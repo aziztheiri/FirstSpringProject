@@ -1,9 +1,8 @@
 package tn.esprit.springproject.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 public class Bloc {
@@ -12,5 +11,9 @@ public class Bloc {
     private Long idB ;
     private String nomB;
     private Long capaciteB ;
+    @ManyToOne()
+    private Foyer foyer;
+    @OneToMany(mappedBy = "bloc")
+    private Set<Chambre> chambres;
 
 }

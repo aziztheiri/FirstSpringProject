@@ -1,12 +1,11 @@
 package tn.esprit.springproject.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
+
 @Entity
 public class Etudiant implements Serializable {
     @Id
@@ -16,5 +15,8 @@ public class Etudiant implements Serializable {
     private String prenomE;
     private Long cin ;
     private String ecole ;
+    @Temporal(TemporalType.DATE)
     private Date dateNaissance ;
+    @ManyToMany(mappedBy="etudiants")
+    private Set<Reservation> reservations;
 }

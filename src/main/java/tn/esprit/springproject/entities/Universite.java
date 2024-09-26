@@ -1,9 +1,6 @@
 package tn.esprit.springproject.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -14,4 +11,6 @@ public class Universite implements Serializable {
     private Long idU ;
     private String nomU ;
     private String adresse ;
+    @OneToOne
+    private Foyer foyer;
 }
