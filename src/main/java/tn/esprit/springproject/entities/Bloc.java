@@ -19,7 +19,7 @@ public class Bloc {
     private Long idB ;
     private String nomB;
     private Long capaciteB ;
-    @ManyToOne()
+    @ManyToOne
     private Foyer foyer;
     @OneToMany(mappedBy = "bloc")
     private Set<Chambre> chambres;

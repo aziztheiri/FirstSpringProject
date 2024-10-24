@@ -37,5 +37,9 @@ public class UniversiteRestController {
     public Universite affecterFoyerAUniversite(@PathVariable Long idF,@PathVariable Long idU){
         return iUniversiteService.affecterFoyerAUniversite(idF,idU);
     }
+      @PostMapping("/desaffecterFoyerAUniversite/{idU}")
+    public Universite desaffecterFoyerFromUniversite(@PathVariable Long idU){
+        return iUniversiteService.desaffecterFoyerFromUniversite(idU);
+    }
 
 }
