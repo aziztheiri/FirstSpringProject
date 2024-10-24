@@ -1,5 +1,6 @@
 package tn.esprit.springproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Bloc {
     private String nomB;
     private Long capaciteB ;
     @ManyToOne
+    @JsonIgnore
     private Foyer foyer;
     @OneToMany(mappedBy = "bloc")
     private Set<Chambre> chambres;
