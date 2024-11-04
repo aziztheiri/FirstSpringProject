@@ -60,4 +60,9 @@ public class BlocServiceIMP implements IBlocService {
         b.setFoyer(f);
         return blocRepository.save(b);
     }
+
+    @Override
+    public List<Bloc> getBlocByCapacite(Long capacite) {
+        return blocRepository.findByCapaciteB(capacite);
+    }
 }

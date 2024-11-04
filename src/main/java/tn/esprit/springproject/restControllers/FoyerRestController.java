@@ -37,5 +37,9 @@ public class FoyerRestController {
       return   iFoyerService.ajouterFoyerEtAffecterAUniversite(foyer,idU);
 
     }
+    @GetMapping("getFoyerByNom/{nomF}")
+    public  Foyer getFoyerByNom(@PathVariable String nomF){
+        return  iFoyerService.getFoyerByNom(nomF);
+    }
 
 }

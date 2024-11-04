@@ -13,6 +13,6 @@ public interface IBlocService {
     public void deleteBlocById(Long idB);
     public Bloc affecterChambresABloc(List<Long> numC, Long idB) ;
     public Bloc affecterBlocAFoyer (Long idB, Long idF) ;
-
+    public List<Bloc> getBlocByCapacite(Long capacite);
 
 }

@@ -47,4 +47,9 @@ public class FoyerServiceIMP implements IFoyerService{
         universiteRepository.save(u);
         return savedfoyer;
     }
+
+    @Override
+    public Foyer getFoyerByNom(String nomF) {
+        return foyerRepository.findByNomF(nomF);
+    }
 }

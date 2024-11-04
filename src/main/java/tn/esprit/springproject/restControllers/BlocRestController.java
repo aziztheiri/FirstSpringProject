@@ -40,4 +40,9 @@ public class BlocRestController {
     public Bloc affecterBlocAFoyer(@PathVariable Long idB,@PathVariable Long idF){
         return iBlocService.affecterBlocAFoyer(idB,idF);
     }
+    @GetMapping("getBlocByCapacite/{capacite}")
+    public List<Bloc> getBlocByCapacite(@PathVariable Long capacite){
+        return iBlocService.getBlocByCapacite(capacite);
+    }
+
 }

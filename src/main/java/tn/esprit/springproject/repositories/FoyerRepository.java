@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import tn.esprit.springproject.entities.Foyer;
 
 public interface FoyerRepository extends JpaRepository<Foyer,Long>{
-
+public Foyer findByNomF(String nomF);
 }
