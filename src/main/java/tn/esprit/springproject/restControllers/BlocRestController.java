@@ -45,4 +45,5 @@ public class BlocRestController {
         return iBlocService.getBlocByCapacite(capacite);
     }
 
+
 }
