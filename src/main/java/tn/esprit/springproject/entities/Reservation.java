@@ -1,5 +1,6 @@
 package tn.esprit.springproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,8 @@ public class Reservation implements Serializable {
     private  LocalDate dateFin;
     private Boolean estValide ;
     @ManyToMany
+    @JsonIgnore
+    @ToString.Exclude
     private Set<Etudiant> etudiants;
 
 }

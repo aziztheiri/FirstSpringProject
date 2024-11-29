@@ -22,8 +22,11 @@ public class Bloc {
     private Long capaciteB ;
     @ManyToOne
     @JsonIgnore
+    @ToString.Exclude
     private Foyer foyer;
     @OneToMany(mappedBy = "bloc")
+    @JsonIgnore
+    @ToString.Exclude
     private Set<Chambre> chambres;
 
 }

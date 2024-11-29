@@ -1,6 +1,8 @@
 package tn.esprit.springproject.services;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.springproject.entities.Bloc;
 import tn.esprit.springproject.entities.Chambre;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Service
+@Slf4j
 public class BlocServiceIMP implements IBlocService {
     private BlocRepository blocRepository;
     private ChambreRepository chambreRepository;
@@ -30,8 +33,15 @@ public class BlocServiceIMP implements IBlocService {
     }
 
     @Override
+ //   @Scheduled(fixedRate = 60000)
     public List<Bloc> retrieveAllBloc() {
-        return blocRepository.findAll();
+        List<Bloc> blocs = blocRepository.findAll();
+
+        log.info(String.valueOf(blocs.size()));
+        for (Bloc b: blocs  ) {
+          log.info("List "+b );
+        }
+        return blocs;
     }
 
     @Override
