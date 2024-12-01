@@ -27,12 +27,12 @@ public class EquipeRestController {
     }
 
     @GetMapping("/retrieveEquipeById/{idE}")
-    public Equipe retrieveEquipeById(@PathVariable Integer idE) {
+    public Equipe retrieveEquipeById(@PathVariable Long idE) {
         return iEquipeService.retrieveEquipeById(idE);
     }
 
     @DeleteMapping("/deleteEquipeById/{idE}")
-    public void deleteEquipeById(Integer idE) {
+    public void deleteEquipeById(Long idE) {
         iEquipeService.deleteEquipeById(idE);
     }
 }

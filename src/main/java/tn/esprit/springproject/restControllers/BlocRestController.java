@@ -40,6 +40,10 @@ public class BlocRestController {
     public Bloc affecterBlocAFoyer(@PathVariable Long idB,@PathVariable Long idF){
         return iBlocService.affecterBlocAFoyer(idB,idF);
     }
+    @PostMapping("desaffecterBlocAFoyer/{idB}")
+    public Bloc desaffecterBlocAFoyer(@PathVariable Long idB){
+        return iBlocService.desaffecterBlocAFoyer(idB);
+    }
     @GetMapping("getBlocByCapacite/{capacite}")
     public List<Bloc> getBlocByCapacite(@PathVariable Long capacite){
         return iBlocService.getBlocByCapacite(capacite);

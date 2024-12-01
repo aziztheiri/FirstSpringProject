@@ -8,6 +8,6 @@ public interface IEquipeService {
     public Equipe addEquipe(Equipe equipe);
     public Equipe updateEquipe(Equipe equipe);
     public List<Equipe> retrieveAllEquipe();
-    public Equipe retrieveEquipeById(Integer idE);
-    public void deleteEquipeById(Integer idE);
+    public Equipe retrieveEquipeById(Long idE);
+    public void deleteEquipeById(Long idE);
 }

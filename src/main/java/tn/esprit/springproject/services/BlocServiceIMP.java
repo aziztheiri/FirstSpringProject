@@ -72,6 +72,12 @@ public class BlocServiceIMP implements IBlocService {
     }
 
     @Override
+    public Bloc desaffecterBlocAFoyer(Long idB) {
+        Bloc b = blocRepository.findById(idB).orElse(null);
+        b.setFoyer(null);
+        return blocRepository.save(b);    }
+
+    @Override
     public List<Bloc> getBlocByCapacite(Long capacite) {
         return blocRepository.findByCapaciteB(capacite);
     }

@@ -1,5 +1,6 @@
 package tn.esprit.springproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,10 +16,13 @@ import java.util.List;
 @Entity
 public class Projet {
     @Id
-    private String id ;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String sujet ;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private ProjetDetail projetDetail;
     @ManyToMany(mappedBy = "projets")
+    @JsonIgnore
+    @ToString.Exclude
     private List<Equipe> equipes;
 }

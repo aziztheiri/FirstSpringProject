@@ -1,5 +1,6 @@
 package tn.esprit.springproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,8 @@ public class ProjetDetail {
     private String technologie;
     private  Long cout;
     private LocalDate date;
+    @JsonIgnore
+    @ToString.Exclude
     @OneToOne(mappedBy = "projetDetail")
     private Projet projet;
 }
