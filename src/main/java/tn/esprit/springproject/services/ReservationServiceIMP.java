@@ -49,7 +49,7 @@ public class ReservationServiceIMP implements IReservationService {
     public long getReservationParAnneeUniversitaire(LocalDate date1, LocalDate date2) {
         return reservationRepository.countByDateDebutBetween(date1,date2);
     }
-@Scheduled(fixedRate = 50000)
+//@Scheduled(fixedRate = 50000)
     @Override
     public void mettreAJourEtAfficherReservations() {
     Date targetDate = new GregorianCalendar(2024, Calendar.JANUARY, 1).getTime(); // Correct way to create a Date

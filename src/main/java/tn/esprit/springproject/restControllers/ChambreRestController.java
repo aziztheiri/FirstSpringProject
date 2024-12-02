@@ -15,33 +15,44 @@ import java.util.List;
 
 public class ChambreRestController {
     private final IChambreService iChambreService;
+
     @PostMapping("/addChambre")
     public Chambre addUniversite(@RequestBody Chambre chambre) {
         return iChambreService.addChambre(chambre);
     }
+
     @PutMapping("/updateChambre")
     public Chambre updateUniversite(@RequestBody Chambre chambre) {
         return iChambreService.updateChambre(chambre);
     }
+
     @GetMapping("/getAllChambre")
     public List<Chambre> retrieveAllChambre() {
         return iChambreService.retrieveAllChambre();
     }
+
     @GetMapping("/findChambreById/{idC}")
     public Chambre retrieveChambreById(@PathVariable Long idC) {
         return iChambreService.retrieveChambreById(idC);
     }
+
     @DeleteMapping("deleteChambreById/{idC}")
     public void deleteChambreById(@PathVariable Long idC) {
         iChambreService.deleteChambreById(idC);
     }
+
     @GetMapping("getChambreByType/{typeChambre}")
-    public List<Chambre> getChambreByType(@PathVariable TypeChambre typeChambre){
+    public List<Chambre> getChambreByType(@PathVariable TypeChambre typeChambre) {
         return iChambreService.getChambreByType(typeChambre);
     }
-    @GetMapping("getChambresParBlocEtType/{idB}/{typeChambre}")
-    public List<Chambre> getChambresParBlocEtType(@PathVariable Long idB,@PathVariable TypeChambre typeChambre){
-        return iChambreService.getChambresParBlocEtType(idB,typeChambre);
 
+    @GetMapping("getChambresParBlocEtType/{idB}/{typeChambre}")
+    public List<Chambre> getChambresParBlocEtType(@PathVariable Long idB, @PathVariable TypeChambre typeChambre) {
+        return iChambreService.getChambresParBlocEtType(idB, typeChambre);
+
+    }
+    @GetMapping("/getChambreByetudiant/{cin}")
+    public List<Chambre> getChambreByetudiant( @PathVariable Long cin) {
+        return  iChambreService.getChambreByetudiant(cin);
     }
 }

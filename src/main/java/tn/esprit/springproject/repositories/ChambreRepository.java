@@ -16,5 +16,6 @@ public interface ChambreRepository extends JpaRepository<Chambre,Long> {
     //JPQL
     @Query("select c from Chambre c where c.bloc.idB=:idB and c.typeC=:typeChambre")
     public List<Chambre> getChambreByBlocAndTypeC(@Param("idB") Long idB,@Param("typeChambre") TypeChambre typeChambre);
-
+    @Query("select c from Chambre c inner join c.reservations r inner join r.etudiants e where e.cin=:cin")
+    public List<Chambre> trouverChselonEtudiant(Long cin);
 }

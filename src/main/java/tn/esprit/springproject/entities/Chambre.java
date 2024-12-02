@@ -22,7 +22,7 @@ public class Chambre implements Serializable {
     private Long numC ;
     @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Reservation> reservations;
     @ManyToOne
     @JsonIgnore
