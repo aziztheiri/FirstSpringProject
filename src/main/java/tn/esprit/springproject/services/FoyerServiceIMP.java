@@ -2,8 +2,10 @@ package tn.esprit.springproject.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.springproject.entities.Bloc;
 import tn.esprit.springproject.entities.Foyer;
 import tn.esprit.springproject.entities.Universite;
+import tn.esprit.springproject.repositories.BlocRepository;
 import tn.esprit.springproject.repositories.FoyerRepository;
 import tn.esprit.springproject.repositories.UniversiteRepository;
 
@@ -13,6 +15,7 @@ import java.util.List;
 public class FoyerServiceIMP implements IFoyerService{
     private FoyerRepository foyerRepository ;
     private UniversiteRepository universiteRepository;
+    private BlocRepository blocRepository;
     @Override
     public Foyer addFoyer(Foyer foyer) {
         return foyerRepository.save(foyer);
@@ -51,5 +54,13 @@ public class FoyerServiceIMP implements IFoyerService{
     @Override
     public Foyer getFoyerByNom(String nomF) {
         return foyerRepository.findByNomF(nomF);
+    }
+
+    @Override
+    public Foyer affecterFoyerABloc(Long idF, Long idB) {
+        Foyer f = foyerRepository.findById(idF).orElse(null);
+        Bloc b = blocRepository.findById(idB).orElse(null);
+        f.getBlocs().forEach(ff->ff.setFoyer(f));
+        return foyerRepository.save(f);
     }
 }
